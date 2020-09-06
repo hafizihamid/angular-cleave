@@ -1,0 +1,161 @@
+<div class="card m-3">
+  <h5 class="card-header">Format input using cleave.js</h5>
+  <div class="card-body">
+    <form [formGroup]="cleaveForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Credit Card</label>
+          <input
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="creditCard"
+            id="creditCard"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': submittedForm && cleaveFormControl.creditCard.errors
+            }"
+            placeholder="Enter credit card"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.creditCard.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.creditCard.errors.required">
+              Credit Card is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Phone</label>
+          <input
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="phone"
+            id="phone"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submittedForm && cleaveFormControl.phone.errors
+            }"
+            placeholder="Enter phone no"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.phone.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.phone.errors.required">
+              Phone number is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Date</label>
+          <input
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="date"
+            id="date"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submittedForm && cleaveFormControl.date.errors
+            }"
+            placeholder="Enter date"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.date.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.date.errors.required">
+              Date is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Time</label>
+          <input
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="time"
+            id="time"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submittedForm && cleaveFormControl.time.errors
+            }"
+            placeholder="hh:mm:ss"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.time.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.time.errors.required">
+              Time is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Numeral</label>
+          <input
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="numeral"
+            id="numeral"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submittedForm && cleaveFormControl.numeral.errors
+            }"
+            placeholder="Enter Numeral *eg 100000"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.numeral.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.numeral.errors.required">
+              numeral is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label>Custom Option</label>
+          <input
+            type="text"
+            formControlName="customOption"
+            id="customOption"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submittedForm && cleaveFormControl.customOption.errors
+            }"
+            placeholder="Enter custom option"
+          />
+          <div
+            *ngIf="submittedForm && cleaveFormControl.customOption.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="cleaveFormControl.customOption.errors.required">
+              custom option is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-left">
+        <button class="btn btn-primary mr-1">Submit</button>
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
